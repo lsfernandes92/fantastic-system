@@ -7,17 +7,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :todo_list_title %>
-  </div>
+  <tr>
+    <td>
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title, id: :todo_list_title, class: "form-control" %>
+      </div>
+    </td>
+  </tr>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :todo_list_description %>
-  </div>
+  <tr>
+    <td>
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_field :description, id: :todo_list_description, class: "form-control" %>
+      </div>
+    </td>
+  </tr>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <tr style="text-align: center;">
+    <td>
+      <div class="actions">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
+    </td>
+  </tr>
 <% end %>
