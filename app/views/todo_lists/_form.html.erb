@@ -2,7 +2,9 @@
   <% if todo_list.errors.any? %>
     <div id="error_explanation">
       <% todo_list.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
+        <div class="alert alert-danger">
+          <p><%= message %></p>
+        </div>
       <% end %>
     </div>
   <% end %>

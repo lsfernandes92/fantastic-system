@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
 
 <h2><%= @todo_list.title %></h2>
 <p><%= @todo_list.description %></p>
