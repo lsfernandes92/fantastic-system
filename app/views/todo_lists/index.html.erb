@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h2>My personal lists</h2>
+<hr>
+
+<% @todo_lists.each do |todo_list| %>
+  <h2><%= link_to todo_list.title, todo_list %></h2>
+  <p><%= todo_list.description %></p>
+<% end %>
+
+<br>
+<hr>
+
+<div class="links">
+  <%= link_to 'New Todo List', new_todo_list_path %>
+</div>
