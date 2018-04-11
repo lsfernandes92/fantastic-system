@@ -2,15 +2,15 @@ class TodoListsController < ApplicationController
   before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
 
   def index
-    @todo_lists = TodoList.all
+    @personal_lists = TodoList.where(user_id: current_user)
   end
 
   def new
-    @todo_list = TodoList.new
+    @todo_list = current_user.todo_lists.build
   end
 
   def create
-    @todo_list = TodoList.new(todo_list_params)
+    @todo_list = current_user.todo_lists.build(todo_list_params)
 
     if @todo_list.save
       redirect_to todo_lists_url, notice: 'New Todo list was successfully created.'

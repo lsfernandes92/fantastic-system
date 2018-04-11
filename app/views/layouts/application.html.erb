@@ -10,6 +10,17 @@
 
   <body>
     <div class="container">
+      <header>
+        <div class="header_inner">
+          <nav style="text-align: right;">
+            <% if user_signed_in? %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to "Log in", new_user_session_path %>
+            <% end %>
+          </nav>
+        </div>
+      </header>
       <%= yield %>
     </div>
   </body>

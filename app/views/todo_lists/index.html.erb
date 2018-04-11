@@ -8,7 +8,7 @@
 <h2>My personal lists</h2>
 <hr>
 
-<% @todo_lists.each do |todo_list| %>
+<% @personal_lists.each do |todo_list| %>
   <h2><%= link_to todo_list.title, todo_list %></h2>
   <p><%= todo_list.description %></p>
 <% end %>
