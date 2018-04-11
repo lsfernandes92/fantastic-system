@@ -7,6 +7,24 @@
 <h2><%= @todo_list.title %></h2>
 <p><%= @todo_list.description %></p>
 
+<table>
+    <tbody>
+      <%= render @todo_list.todo_items %>
+    </tbody>
+</table>
+
+<br>
+<hr>
+<br>
+
+<table>
+  <tbody>
+    <div class="form-group">
+      <%= render "todo_items/form" %>
+    </div>
+  </tbody>
+</table>
+
 <div class="links">
   <%= link_to 'Back', todo_lists_path %> |
   <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
