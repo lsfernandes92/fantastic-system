@@ -16,6 +16,7 @@
         <div class="header_inner">
           <nav style="text-align: right;">
             <% if user_signed_in? %>
+              <%= link_to 'New Todo List', new_todo_list_path %> | 
               <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             <% else %>
               <%= link_to "Log in", new_user_session_path %>

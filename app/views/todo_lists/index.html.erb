@@ -4,8 +4,7 @@
   </div>
 <% end %>
 
-
-<h2>My personal lists</h2>
+<h2 class="lists_title">My personal lists</h2>
 <hr>
 
 <% @personal_lists.each do |todo_list| %>
@@ -13,9 +12,18 @@
   <p><%= todo_list.description %></p>
 <% end %>
 
-<br>
+<h2 class="lists_title">Public lists</h2>
 <hr>
 
-<div class="links">
-  <%= link_to 'New Todo List', new_todo_list_path %>
-</div>
+<% @public_lists_from_users.each do |todo_list| %>
+  <h2><%= link_to todo_list.title, todo_list %></h2>
+  <p><%= todo_list.description %></p>
+<% end %>
+
+<h2 class="lists_title">Favorite lists</h2>
+<hr>
+
+<% @favorites_lists.each do |todo_list| %>
+  <h2><%= link_to todo_list.title, todo_list %></h2>
+  <p><%= todo_list.description %></p>
+<% end %>

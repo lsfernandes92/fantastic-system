@@ -35,6 +35,11 @@ h2, p {
   text-align: center;
 }
 
+.lists_title {
+  font-size: 45px;
+  margin-top: 2em;
+}
+
 table {
     width: 50%;
     margin-left: auto;

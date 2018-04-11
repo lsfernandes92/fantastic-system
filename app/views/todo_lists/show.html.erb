@@ -21,16 +21,28 @@
 <hr>
 <br>
 
-<table>
-  <tbody>
-    <div class="form-group">
-      <%= render "todo_items/form" %>
-    </div>
-  </tbody>
-</table>
+<% if @todo_list.user == current_user %>
+  <table>
+    <tbody>
+      <div class="form-group">
+        <%= render "todo_items/form" %>
+      </div>
+    </tbody>
+  </table>
 
-<div class="links">
-  <%= link_to 'Back', todo_lists_path %> |
-  <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
-  <%= link_to 'Delete', @todo_list, method: :delete, data: { confirm: 'Are you sure?' } %>
-</div>
+  <div class="links">
+    <%= link_to 'Back', todo_lists_path %> |
+    <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+    <% if @todo_list.public? %>
+      <%= link_to 'Mark as private', change_visibility_todo_list_path(@todo_list, @todo_list.id), method: :patch %> |
+    <% else %>
+      <%= link_to 'Mark as public', change_visibility_todo_list_path(@todo_list, @todo_list.id), method: :patch %> |
+    <% end %>
+    <%= link_to 'Delete', @todo_list, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% else %>
+  <div class="links">
+    <%= link_to 'Back', todo_lists_path %> |
+    <%= link_to 'Mark as favorite', add_favorite_todo_list_path(@todo_list, @todo_list.id), method: :patch %>
+  </div>
+<% end %>

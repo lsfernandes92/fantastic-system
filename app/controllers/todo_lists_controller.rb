@@ -1,8 +1,10 @@
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo_list, except: [:index, :new, :create]
 
   def index
     @personal_lists = TodoList.where(user_id: current_user)
+    @public_lists_from_users = TodoList.where.not(user_id: current_user, public: false).sample(2)
+    @favorites_lists = current_user.favorite_todo_lists
   end
 
   def new
@@ -32,12 +34,32 @@ class TodoListsController < ApplicationController
     redirect_to todo_lists_url, notice: 'Todo list was deleted.'
   end
 
+  def change_visibility
+    if @todo_list.public?
+      @todo_list.update_attribute(:public, false)
+      redirect_to @todo_list, notice: "Todo list marked as private"
+    else
+      @todo_list.update_attribute(:public, true)
+      redirect_to @todo_list, notice: "Todo list marked as public"
+    end
+  end
+
+  def add_favorite
+    @favorite = current_user.favorites.build(todo_list_id: params[:id])
+
+    if @favorite.save
+      redirect_to @todo_list, notice: 'Todo list marked as favorite'
+    else
+      redirect_to @todo_list, alert: 'Todo list already marked as favorite'
+    end
+  end
+
   private
     def set_todo_list
       @todo_list = TodoList.find(params[:id])
     end
 
     def todo_list_params
-      params.require(:todo_list).permit(:title, :description)
+      params.require(:todo_list).permit(:id, :title, :description, :public)
     end
 end

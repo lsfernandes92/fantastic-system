@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :todo_lists, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_todo_lists, through: :favorites, source: :todo_list
 end

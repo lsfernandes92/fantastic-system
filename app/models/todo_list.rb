@@ -4,4 +4,8 @@ class TodoList < ApplicationRecord
 
   validates :title, presence: true
   validates :description, length: { maximum: 50 }
+
+  def public?
+    self.public
+  end
 end
