@@ -1,5 +1,29 @@
-<tr>
-  <td>
-    <%= todo_item.content %>
-  </td>
-</tr>
+<% if todo_item.completed? %>
+  <tr>
+      <td>
+        <%= link_to complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
+          <i style="opacity: 0.4;" class="fa fa-check"></i>
+        <% end %>
+      </td>
+      <td><strike style="opacity: 0.4;"><%= todo_item.content %></strike></td>
+      <td>
+        <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "R u sure?" } do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      </td>
+  </tr>
+<% else %>
+  <tr>
+      <td>
+        <%= link_to complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch do %>
+          <i class="fa fa-check"></i>
+        <% end %>
+      </td>
+      <td><%= todo_item.content %></td>
+      <td>
+        <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: { confirm: "R u sure?" } do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      </td>
+  </tr>
+<% end %>

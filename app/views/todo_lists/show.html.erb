@@ -2,6 +2,10 @@
   <div class="alert alert-success">
     <p id="notice"><%= notice %></p>
   </div>
+<% elsif flash[:alert] %>
+  <div class="alert alert-warning">
+    <p id="notice"><%= alert %></p>
+  </div>
 <% end %>
 
 <h2><%= @todo_list.title %></h2>
