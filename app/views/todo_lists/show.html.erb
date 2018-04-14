@@ -21,15 +21,15 @@
 <hr>
 <br>
 
-<% if @todo_list.user == current_user %>
-  <table>
-    <tbody>
-      <div class="form-group">
-        <%= render "todo_items/form" %>
-      </div>
-    </tbody>
-  </table>
+<table>
+  <tbody>
+    <div class="form-group">
+      <%= render "todo_items/form" %>
+    </div>
+  </tbody>
+</table>
 
+<% if @todo_list.user == current_user %>
   <div class="links">
     <%= link_to 'Back', todo_lists_path %> |
     <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |

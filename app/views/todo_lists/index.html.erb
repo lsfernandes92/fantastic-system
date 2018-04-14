@@ -6,24 +6,12 @@
 
 <h2 class="lists_title">My personal lists</h2>
 <hr>
-
-<% @personal_lists.each do |todo_list| %>
-  <h2><%= link_to todo_list.title, todo_list %></h2>
-  <p><%= todo_list.description %></p>
-<% end %>
+<%= render @personal_lists %>
 
 <h2 class="lists_title">Public lists</h2>
 <hr>
-
-<% @public_lists_from_users.each do |todo_list| %>
-  <h2><%= link_to todo_list.title, todo_list %></h2>
-  <p><%= todo_list.description %></p>
-<% end %>
+<%= render @public_lists_from_users %>
 
 <h2 class="lists_title">Favorite lists</h2>
 <hr>
-
-<% @favorites_lists.each do |todo_list| %>
-  <h2><%= link_to todo_list.title, todo_list %></h2>
-  <p><%= todo_list.description %></p>
-<% end %>
+<%= render @favorites_lists %>

@@ -1,10 +1,12 @@
 <%= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
-<tr>
-  <td>
-    <%= f.text_field :content, placeholder: "New todo", class: "form-control" %>
-  </td>
-  <td>
-    <%= f.submit class: "btn btn-primary" %>
-  </td>
-</tr>
+  <% if @todo_list.user == current_user %>
+    <tr>
+      <td>
+        <%= f.text_field :content, placeholder: "New todo", class: "form-control" %>
+      </td>
+      <td>
+        <%= f.submit class: "btn btn-primary" %>
+      </td>
+    </tr>
+  <% end %>
 <% end %>

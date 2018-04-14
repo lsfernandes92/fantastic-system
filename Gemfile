@@ -21,13 +21,24 @@ gem "twitter-bootstrap-rails"
 gem 'coffee-rails', '~> 4.2'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
+# A simple wrapper for objects (think of Burgundy as a decorator/presenter) in less than 150 lines.
+gem "burgundy"
+# RSpec for Rails-3+
+gem "rspec-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
+  gem "database_cleaner"
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  # Driver to run js scripts in Firefox
   gem 'selenium-webdriver'
+  # Driver to run js scripts in Chrome
+  gem 'chromedriver-helper'
+  # A library for setting up Ruby objects as test data. 
+  gem 'factory_girl_rails', '~> 4.5'
 end
 
 group :development do
