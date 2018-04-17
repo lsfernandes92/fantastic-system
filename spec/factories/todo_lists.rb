@@ -12,4 +12,11 @@ FactoryGirl.define do
     user
     public        false
   end
+
+  factory :todo_list do
+    title         "Default todo list"
+    description   "Some random default description"
+    user
+    public        true
+  end
 end

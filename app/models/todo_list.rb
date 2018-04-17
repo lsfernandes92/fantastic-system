@@ -6,7 +6,7 @@ class TodoList < ApplicationRecord
   has_many :users, through: :favorites
 
   validates :title, presence: true
-  validates :description, length: { maximum: 50 }
+  validates :description, :title, length: { maximum: 50 }
 
   def public?
     self.public

@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'rails_helper'
 
 feature 'Create todo list' do
-  before do
+  background do
     @user = FactoryGirl.create(:user)
   end
 
