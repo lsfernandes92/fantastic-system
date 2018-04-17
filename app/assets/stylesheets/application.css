@@ -14,7 +14,15 @@
  *= require_self
  */
 
- hr {
+#notification_wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  color: #5b88cf;
+}
+
+hr {
     display: block;
     margin-top: 0.5em;
     margin-bottom: 0.5em;

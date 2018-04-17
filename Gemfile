@@ -22,9 +22,11 @@ gem 'coffee-rails', '~> 4.2'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
 # A simple wrapper for objects (think of Burgundy as a decorator/presenter) in less than 150 lines.
-gem "burgundy"
+gem 'burgundy'
 # RSpec for Rails-3+
-gem "rspec-rails"
+gem 'rspec-rails'
+# A gem to automate using jQuery with Rails
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -37,7 +39,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   # Driver to run js scripts in Chrome
   gem 'chromedriver-helper'
-  # A library for setting up Ruby objects as test data. 
+  # A library for setting up Ruby objects as test data.
   gem 'factory_girl_rails', '~> 4.5'
 end
 
